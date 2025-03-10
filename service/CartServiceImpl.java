@@ -15,7 +15,7 @@ public class CartServiceImpl implements CartService {
     private int count = 0;
 
     @Override
-    public boolean availableProduct() {
+    public final boolean availableProduct() {
 
         if (productList.isEmpty()) {
             System.out.println("product is empty");
@@ -30,9 +30,9 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public boolean addProductToCart( final int productId) {
+    public final boolean addProductToCart( final int productId) {
         if (cartMap.containsKey(productId)) {
-            Cart existingCart = cartMap.get(productId);
+            final Cart existingCart = cartMap.get(productId);
             existingCart.setQuantity(existingCart.getQuantity() + 1);
             existingCart.setTotalAmount(existingCart.getQuantity() * existingCart.getProductPrice());
             System.out.println("product quantity:" + existingCart.getQuantity() + ","
@@ -52,7 +52,7 @@ public class CartServiceImpl implements CartService {
         }
     }
 
-    public boolean removeCart(final int id){
+    public final boolean removeCart(final int id){
         if(cartMap.containsKey(id)){
             cartMap.remove(id);
             return true;
@@ -63,7 +63,7 @@ public class CartServiceImpl implements CartService {
        return false;
     }
 
-    public boolean viewCart(int id){
+    public final boolean viewCart(int id){
         if(cartMap.containsKey(id)){
            System.out.println(cartMap.get(id));
         }

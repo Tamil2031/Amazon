@@ -10,7 +10,7 @@ public class UserServiceImpl implements UserService {
     public static String currentUser;
 
     @Override
-    public boolean getUserSignUp(final User user) {
+    public final boolean getUserSignUp(final User user) {
         if (userList.containsKey(user.getEmail())) {
             return false;
         } else {
@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean getUserSignIn(final String email, final String password) {
+    public final boolean getUserSignIn(final String email, final String password) {
         if (userList.containsKey(email) && userData.get(email).equals(password)) {
             currentUser = email;
             //return userList.get(email).getPassword().equals(password);
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userUpdate(final String email, final String newName, final String newPassword) {
+    public final boolean userUpdate(final String email, final String newName, final String newPassword) {
         if (userList.containsKey(email)) {
             User user = new User();
             user.setEmail(email);
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userDelete() {
+    public final boolean userDelete() {
         if (currentUser != null && userList.containsKey(currentUser)) {
             userList.remove(currentUser);
             userData.remove(currentUser);
@@ -58,13 +58,12 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    public void viewUser() {
+    public final void viewUser() {
         if (userList.containsKey(currentUser)) {
-            User user = userList.get(currentUser);
+            final User user = userList.get(currentUser);
             System.out.println("user information: " + user);
         }else {
             System.out.println("user email not found");
         }
-
     }
 }

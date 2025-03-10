@@ -1,6 +1,6 @@
 package model;
 
-public class Cart {
+public final class Cart {
     private final int cartId;
     private int quantity;
     private double productPrice;
@@ -13,35 +13,35 @@ public class Cart {
         this.totalAmount = totalAmount;
     }
 
-    public final int getCartId() {
+    public int getCartId() {
         return cartId;
     }
 
-    public final int getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public final double getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public final void setQuantity(final int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 
-    public final double getTotalAmount() {
+    public double getTotalAmount() {
         return totalAmount = quantity * productPrice;
     }
 
-    public final void setProductPrice(final double productPrice) {
+    public void setProductPrice(final double productPrice) {
         this.productPrice = productPrice;
     }
 
-    public final void setTotalAmount(final double totalAmount) {
+    public void setTotalAmount(final double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public final String toString(){
+    public String toString(){
        return String.format("product id: %s | quantity: %d | product price: %f | product total Amount %f",
                getCartId(), getQuantity(), getProductPrice(), getTotalAmount());
     }

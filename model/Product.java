@@ -1,6 +1,6 @@
 package model;
 
-public class Product {
+public final class Product {
     private String name;
     private  int id;
     private double price;
@@ -10,7 +10,7 @@ public class Product {
         this.price = price;
     }
 
-    public final void setName(final String name){
+    public void setName(final String name){
         this.name = name;
     }
 

@@ -2,8 +2,8 @@ package controller;
 
 import service.*;
 
-public class CartController {
-    private static CartService service = new CartServiceImpl();
+public final class CartController {
+    private static final CartService service = new CartServiceImpl();
     private static final Payment payment = new PaypalPayment();
     private static final Payment deliveryPayment = new CashOnDelivery();
 

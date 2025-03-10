@@ -10,13 +10,13 @@ public class ProductView {
     private static final ProductController proController = new ProductController();
     private static int idGenerator = 0;
 
-    public void displayAddProduct() {
+    public final void displayAddProduct() {
         System.out.println("enter your product name");
-        String name = scanner.nextLine();
+        final String name = scanner.nextLine();
         System.out.println("enter your product price");
-        double price = scanner.nextInt();
+        final double price = scanner.nextInt();
         scanner.nextLine();
-        Product product = new Product(name, price);
+        final Product product = new Product(name, price);
         idGenerator++;
         product.setId(idGenerator);
 
@@ -27,14 +27,14 @@ public class ProductView {
         }
     }
 
-    public void displayUpdateProduct() {
+    public final void displayUpdateProduct() {
         System.out.println("please enter your id");
-        int id = scanner.nextInt();
+        final int id = scanner.nextInt();
         scanner.nextLine();
         System.out.println("please enter your new product name");
-        String newName = scanner.nextLine();
+        final String newName = scanner.nextLine();
         System.out.println("please enter your new product price");
-        double newPrice = scanner.nextDouble();
+        final double newPrice = scanner.nextDouble();
         scanner.nextLine();
         if (proController.updateProduct(id, newName, newPrice)) {
             System.out.println("Updated successfully");
@@ -43,9 +43,9 @@ public class ProductView {
         }
     }
 
-    public void displayDeleteProduct() {
+    public final void displayDeleteProduct() {
         System.out.println("please enter your id");
-        int id = scanner.nextInt();
+        final int id = scanner.nextInt();
         scanner.nextLine();
         if (proController.deleteProduct(id)) {
             System.out.println("deleted successfully");
@@ -54,19 +54,19 @@ public class ProductView {
         }
     }
 
-    public void showProductDetails() {
+    public final void showProductDetails() {
             displayAddProduct();
             updateAndDelete();
     }
 
-    public void updateAndDelete() {
+    public final void updateAndDelete() {
         while (true) {
             System.out.println("1. update your product");
             System.out.println("2. delete your product");
             System.out.println("3. viewProduct");
             System.out.println("4. previous");
             System.out.println("5. existing......");
-            String number = scanner.nextLine();
+            final String number = scanner.nextLine();
             switch (number) {
                 case "1":
                     displayUpdateProduct();

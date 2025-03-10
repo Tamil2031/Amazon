@@ -10,15 +10,15 @@ public class UserView {
     private static final Scanner scanner = new Scanner(System.in);
     private static int userIdGenerator = 0;
 
-    public void signUp() {
+    public final void signUp() {
         User user = new User();
         System.out.println(".......welcome to signup page.......");
         System.out.println("enter your name:");
-        String userName = scanner.nextLine();
+        final String userName = scanner.nextLine();
         System.out.println("enter your password");
-        String password = scanner.nextLine();
+        final String password = scanner.nextLine();
         System.out.println("enter your email");
-        String email = scanner.nextLine();
+        final String email = scanner.nextLine();
         ++userIdGenerator;
         user.setUsername(userName);
         user.setPassword(password);
@@ -33,12 +33,12 @@ public class UserView {
         displayAmazon();
     }
 
-    public void signIn() {
-        User user = new User();
+    public final void signIn() {
+       final User user = new User();
         System.out.println("enter your email:");
-        String email = scanner.nextLine();
+        final String email = scanner.nextLine();
         System.out.println("enter your password:");
-        String password = scanner.nextLine();
+        final String password = scanner.nextLine();
         user.setEmail(email);
         user.setUsername(password);
         if (controller.getUserSignIn(email, password)) {
@@ -50,23 +50,23 @@ public class UserView {
         }
     }
 
-    public void addCartAndView(){
+    public final void addCartAndView(){
         System.out.println("1. user");
         System.out.println("2. add Product");
         System.out.println("3. cart");
         System.out.println("4. previous");
         System.out.println("5. exists");
-        String choice = scanner.nextLine();
+        final String choice = scanner.nextLine();
         switch (choice) {
             case "1":
                 showUser();
                 break;
             case "2":
-                ProductView view = new ProductView();
+                final ProductView view = new ProductView();
                 view.showProductDetails();
                 break;
             case "3" :
-                CartView cartView = new CartView();
+                final CartView cartView = new CartView();
                 cartView.addProductToCart();
                 break;
             case "4" :
@@ -77,13 +77,13 @@ public class UserView {
         }
     }
 
-    public void displayUpdateUser() {
+    public final void displayUpdateUser() {
         System.out.println("enter your email");
-        String email = scanner.nextLine();
+        final String email = scanner.nextLine();
         System.out.println("please enter your name");
-        String newName = scanner.nextLine();
+        final String newName = scanner.nextLine();
         System.out.println("enter your  new password");
-        String newPassword = scanner.nextLine();
+        final String newPassword = scanner.nextLine();
         if (controller.getUserUpdate(email, newName, newPassword)) {
             System.out.println("your name and password updated successfully");
         } else {
@@ -91,11 +91,11 @@ public class UserView {
         }
     }
 
-    public void displayDeletedUser() {
+    public final void displayDeletedUser() {
         System.out.println("conformation do you want to delete");
         System.out.println("1.yes");
         System.out.println("2. no");
-        String choice = scanner.nextLine();
+        final String choice = scanner.nextLine();
 
         if (choice.equals("1")) {
             controller.getUserDelete();
@@ -107,11 +107,11 @@ public class UserView {
         }
     }
 
-    public void  viewUser(){
+    public final void  viewUser(){
         controller.viewUser();
     }
 
-    public void showUser() {
+    public final void showUser() {
         while (true) {
             System.out.println("1. updateUser");
             System.out.println("2. delete user");
@@ -136,7 +136,7 @@ public class UserView {
         }
     }
 
-    public void displayAmazon() {
+    public final void displayAmazon() {
         System.out.println(".......welcome to Amazon.......");
         System.out.println("1. signUp");
         System.out.println("2. signIn");

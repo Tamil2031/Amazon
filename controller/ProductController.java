@@ -4,10 +4,10 @@ import model.Product;
 import service.ProductService;
 import service.ProductServiceImpl;
 
-public class ProductController {
+public final class ProductController {
     private static final ProductService service = new ProductServiceImpl();
 
-    public  boolean addProduct(Product product){
+    public boolean addProduct(Product product){
         return service.addProduct(product);
     }
 
