@@ -4,7 +4,7 @@ import model.User;
 import service.UserService;
 import service.UserServiceImpl;
 
-public class UserController {
+public final class UserController {
 
 
     private static UserService service = new UserServiceImpl();

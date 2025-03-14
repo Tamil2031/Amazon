@@ -13,7 +13,7 @@ public class ProductServiceImpl implements ProductService {
     public static final Map <String, List<Product>> productList = new HashMap<>();
 
 
-    public boolean addProduct(Product product) {
+    public final boolean addProduct(Product product) {
             productList.putIfAbsent(currentUser, new ArrayList<>());
         productList.get(currentUser).add(product);
         System.out.println("product added successfully");
@@ -21,8 +21,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void viewProduct() {
-        List<Product> userProducts = productList.get(currentUser);
+    public final void viewProduct() {
+        final List<Product> userProducts = productList.get(currentUser);
         if(userProducts == null || userProducts.isEmpty()){
             System.out.println("no product found for this user");
         }
@@ -33,8 +33,8 @@ public class ProductServiceImpl implements ProductService {
             }
     }
 
-    public boolean updateProduct(final int id, final String newName, final double newPrice) {
-        List<Product> userProducts = productList.get(currentUser);
+    public final boolean updateProduct(final int id, final String newName, final double newPrice) {
+        final List<Product> userProducts = productList.get(currentUser);
         if(userProducts == null || userProducts.isEmpty()){
             System.out.println("no product found for this user");
             return false;
@@ -50,12 +50,12 @@ public class ProductServiceImpl implements ProductService {
         return false;
     }
 
-    public boolean deleteProduct(final int id) {
+    public final boolean deleteProduct(final int id) {
         if(currentUser == null){
             System.out.println("you must signIn to delete product");
             return false;
         }
-        List<Product> userProducts = productList.get(currentUser);
+        final List<Product> userProducts = productList.get(currentUser);
 
         for (final Product product : userProducts ) {
             if (product.getId() == id) {
