@@ -1,0 +1,24 @@
+name: reusble workflow 
+
+on:
+ workflow_call:
+   inputs:
+     tamila:
+       required: true
+       type: string
+       description: "access the name tamila"
+
+     debug-gmode:
+             check-debug:
+             required: true
+             type: string
+             description: "check debug"
+      
+      
+       
+     
+     
+    
+  
+    
+
