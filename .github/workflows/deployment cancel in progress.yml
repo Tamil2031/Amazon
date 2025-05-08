@@ -1,0 +1,28 @@
+name: deployment cancel in prograss
+concurrency:
+ group: production
+ cancel-in-progress: true
+ 
+
+
+on:
+ push:
+  branches:
+   -master
+
+jobs:
+  deploy:
+   runs-on: ubuntu-latest
+   environment: production
+   
+   steps:
+   - name: deploye
+   
+   
+   
+   
+   
+
+  
+  
+ 
