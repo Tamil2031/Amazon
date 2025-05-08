@@ -1,0 +1,49 @@
+name: manual workflow with input
+
+on:
+ workflow_dispatch:
+  inputs:
+   name:
+    description: "your name"
+    required: true
+    type: string
+    default: user
+
+   last name:
+    description: "your last name"
+    required: true
+    default: user 
+    type: string
+
+   set age:
+    description: "enter your age"
+    required: true
+    default: age
+    type: number
+
+   address:
+    description: "enter your address"
+    required: true
+    default: area
+    type: string
+
+   jobs:
+   dispatch with inputs:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: checkout
+       uses: actions/checkout@v3
+
+     - name: display input
+       run: |
+          echo "hello, ${{github.event.inputs.name}}"
+          echo "last name: ${{github.event.inputs.last name}}"
+          echo "set age: ${{github.event.inputs.set age}}"
+          echo "address: ${{github.event.inputs.address}}"
+     
+     
+    
+   
+   
+ 
