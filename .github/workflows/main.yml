@@ -20,24 +20,7 @@ jobs:
       java-version: 17
      
 
- call-reusable-workflow:
-    needs: setup
-    uses: ./.github/workflows/reusable-workflow.yml
-    with:
-     environment: ${{ needs.setup.output.environment}}
-     debug-mode: true
-    secrets: 
-     access-token: ${{ secrets.DEPLOYMENT-TOKEN}}
-       
-     
-     
- finalize:
-    needs: call-reusable-workflow
-    runs-on: ubuntu-latest
-    steps:
-     - name: finalize process
-       run: echo " workflow deploy successfully"
-       
+ 
      
    
   
