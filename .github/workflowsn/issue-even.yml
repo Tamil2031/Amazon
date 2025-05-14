@@ -1,0 +1,23 @@
+name: issues
+
+ on:
+  issues:
+   - opened:
+
+   jobs:
+    label-issues:
+      runs-on: obuntu-latest
+
+      steps:
+        -env
+          - GH_TOKEN: ${{ sectrets.GITHUB-TOKEN}}
+           ISSUE_URL: ${{ github.event.issue.html.url}}
+
+           run: |
+              gh issue edit $ISSUE_URL --add-label "triage"
+             
+          
+    
+
+  
+   
