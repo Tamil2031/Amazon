@@ -1,0 +1,30 @@
+name: bashDemo
+on: 
+  push:
+   branches:
+    -master
+
+jobs:
+ bashcript:
+  runs-on: ubuntu-latest
+
+  steps:
+  - name: checkout
+    uses: actions/checkout@v3
+
+  - name: setup java
+    uses: actions/setup-java@v4
+  - name: check bash
+    run: |
+        num=15
+        if[ $name -gt 10]; then
+         echo "number is greater than 10"
+        else
+         echo "number is less than 10"
+         fi
+         
+        
+        
+    
+   
+    
