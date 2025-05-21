@@ -1,0 +1,27 @@
+name: event start with issues
+
+on:
+ issues:
+  types: [ opened, edited, closed]
+  issue-comment:
+   types: [created, closed]
+
+   jobs:
+    build:
+     runs-on: ubuntu-latest
+
+     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: set up jdk 11
+        uses: actions/setup-java@v4
+        with:
+         java-version: 11
+         distribution: temurin
+
+      - name: excution permission
+        run: chmod +x gradlew
+
+      - name: build gradle
+        run: ./gradlew build
